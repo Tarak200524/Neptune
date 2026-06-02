@@ -47,7 +47,13 @@ async def telegram_webhook(request: Request):
                 await send_telegram_message(chat_id, final_response)
                 
             except Exception as e:
-                logger.error(f"Error processing workflow: {e}")
-                await send_telegram_message(chat_id, "Sorry, I encountered an error while analyzing your decision.")
+                import traceback
+                
+                print("========== REAL ERROR ==========")
+                print(str(e))
+                traceback.print_exc()
+                print("================================")
+                
+                await send_telegram_message(chat_id, f"Debug Error: {str(e)}")
     
     return {"status": "ok"}
