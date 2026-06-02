@@ -34,9 +34,6 @@ async def telegram_webhook(request: Request):
                 # Run LangGraph workflow
                 initial_state = {
                     "user_message": user_text,
-                    "analysis": "",
-                    "support_points": "",
-                    "critical_points": "",
                     "final_answer": ""
                 }
                 
